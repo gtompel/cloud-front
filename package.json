@@ -1,0 +1,27 @@
+{
+  "name": "cloud-storage-client",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^5.0.1",
+    "@types/node": "18.15.11",
+    "@types/react": "18.0.32",
+    "@types/react-dom": "18.0.11",
+    "antd": "^5.3.3",
+    "axios": "^1.3.4",
+    "next": "13.2.4",
+    "nookies": "^2.5.2",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-selecto": "^1.22.1",
+    "sass": "^1.60.0",
+    "typescript": "5.0.3"
+  },
+  "packageManager": "pnpm@9.9.0+sha512.60c18acd138bff695d339be6ad13f7e936eea6745660d4cc4a776d5247c540d0edee1a563695c183a66eb917ef88f2b4feb1fc25f32a7adcadc7aaf3438e99c1"
+}
