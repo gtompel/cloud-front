@@ -8,11 +8,14 @@ import { FileItem } from "@/api/dto/files.dto";
 import { DashboardLayout } from "@/layouts/DashboardLayout";
 import { Files } from "@/modules/Files";
 
+type NextPageWithLayout<Props = {}> = NextPage<Props> & {
+  getLayout?: (page: React.ReactNode) => React.ReactNode;
+};
 interface Props {
   items: FileItem[];
 }
 
-const DashboardPhotos: NextPage<Props> = ({ items }) => {
+const DashboardPhotos: NextPageWithLayout<Props> = ({ items }) => {
   return (
     <DashboardLayout>
       <Files items={items} withActions />
@@ -33,6 +36,8 @@ export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
 
   try {
     const items = await Api.files.getAll("photos");
+    
+
 
     return {
       props: {

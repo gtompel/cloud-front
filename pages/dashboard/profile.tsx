@@ -7,13 +7,16 @@ import { checkAuth } from "@/utils/checkAuth";
 import * as Api from "@/api";
 import React from "react";
 import { Layout } from "@/layouts/Layout";
-import DashboardPage from "@/pages/dashboard/index";
 
+
+type NextPageWithLayout<Props = {}> = NextPage<Props> & {
+  getLayout?: (page: React.ReactNode) => React.ReactNode;
+};
 interface Props {
   userData: User;
 }
 
-const DashboardProfilePage: NextPage<Props> = ({ userData }) => {
+const DashboardProfilePage: NextPageWithLayout<Props> = ({ userData }) => {
   const onClickLogout = () => {
     if (window.confirm("Вы действительно хотите выйти?")) {
       Api.auth.logout();

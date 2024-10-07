@@ -8,11 +8,16 @@ import { FileItem } from "@/api/dto/files.dto";
 import { DashboardLayout } from "@/layouts/DashboardLayout";
 import { Files } from "@/modules/Files";
 
+// Расширение типа NextPage для добавления getLayout
+type NextPageWithLayout<Props = {}> = NextPage<Props> & {
+  getLayout?: (page: React.ReactNode) => React.ReactNode;
+};
+
 interface Props {
   items: FileItem[];
 }
 
-const DashboardPage: NextPage<Props> = ({ items }) => {
+const DashboardPage: NextPageWithLayout<Props> = ({ items }) => {
   return (
     <DashboardLayout>
       <Files items={items} withActions />

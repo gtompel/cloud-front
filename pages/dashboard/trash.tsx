@@ -8,11 +8,15 @@ import { FileItem } from "@/api/dto/files.dto";
 import { DashboardLayout } from "@/layouts/DashboardLayout";
 import { Files } from "@/modules/Files";
 
+type NextPageWithLayout<Props = {}> = NextPage<Props> & {
+  getLayout?: (page: React.ReactNode) => React.ReactNode;
+};
+
 interface Props {
   items: FileItem[];
 }
 
-const DashboardTrash: NextPage<Props> = ({ items }) => {
+const DashboardTrash: NextPageWithLayout<Props> = ({ items }) => {
   return (
     <DashboardLayout>
       <Files items={items} />
